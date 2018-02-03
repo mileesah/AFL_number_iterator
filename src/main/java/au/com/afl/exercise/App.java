@@ -39,6 +39,10 @@ public class App {
     }
 
     public static void main(String[] args) {
+
+        /*
+         * Retrieve input
+         */
         System.out.println("This is a number iterator");
 
         Scanner sc = new Scanner(System.in);
@@ -57,17 +61,20 @@ public class App {
 
 
 
-
+        /* Assemble collection of numbers */
         List numberList = new ArrayList();
 
         for (int i = 0; i <= upperLimit; i++) {
             numberList.add(i);
         }
 
+        /* Instantiate custom iterator */
         Iterator iterator = new DefaultIterator(numberList);
-        CommandBuilder commandBuilder = new DefaultCommandBuilder();
-        App numberIterator = new App(iterator,commandBuilder);
 
+        /* Instantiate custom command builder */
+        CommandBuilder commandBuilder = new DefaultCommandBuilder();
+
+        App numberIterator = new App(iterator,commandBuilder);
 
         numberIterator.iterate();
 
@@ -76,11 +83,13 @@ public class App {
 
 
     public void iterate() {
+        /* Iterate through the collection using the custom iterator */
         while (this.iterator.hasNext()) {
             Integer num = (Integer) iterator.next();
-
+            /* Get list of commands to execute */
             List<Command> commands = this.commandBuilder.getCommands(num);
             for (Command command : commands) {
+                //execute command
                 command.execute();
             }
 

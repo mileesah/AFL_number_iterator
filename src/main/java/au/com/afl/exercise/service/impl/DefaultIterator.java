@@ -4,6 +4,10 @@ import au.com.afl.exercise.service.Iterator;
 
 import java.util.List;
 
+/**
+ * Default iterator for the number collection
+ * Will iterate the array one by one
+ */
 public class DefaultIterator implements Iterator{
 
     private int index;
@@ -13,8 +17,6 @@ public class DefaultIterator implements Iterator{
         this.collection = collection;
         this.index = 0;
     }
-
-
 
     @Override
     public boolean hasNext() {

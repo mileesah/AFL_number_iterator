@@ -15,8 +15,12 @@ public class NumberDivisibleOperator implements Operator {
 
     @Override
     public Object execute() {
-        if(this.num1%this.num2==0) {
-            return true;
+        try {
+            if (this.num1 % this.num2 == 0) {
+                return true;
+            }
+        }catch (ArithmeticException e){
+            return false;
         }
 
         return false;
